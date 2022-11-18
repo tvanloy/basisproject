@@ -26,7 +26,7 @@ app.add_middleware(
 
 
 def get_image_files(directory_name: str) -> List[str]:
-    return os.listdir("wholesomememes")
+    return os.listdir("prank")
 
 
 def random_img(directory_name: str) -> str:
