@@ -32,7 +32,7 @@ def get_image_files(directory_name: str) -> List[str]:
 def random_img(directory_name: str) -> str:
     images = get_image_files(directory_name)
     random_image = random.choice(images)
-    path = f"{directory_name}/{random_image}"
+    path = f"/code/app{directory_name}/{random_image}"
     return path
 
 
