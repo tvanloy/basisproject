@@ -1,8 +1,11 @@
 import fastapi
 from fastapi import FastAPI
-import service
 import fastapi.responses as responses
 from fastapi.middleware.cors import CORSMiddleware
+from typing import List
+import os
+import random
+import time
 
 app = FastAPI()
 
@@ -22,6 +25,32 @@ app.add_middleware(
 )
 
 
+def get_image_files(directory_name: str) -> List[str]:
+    return os.listdir(directory_name)
+
+
+def random_img(directory_name: str) -> str:
+    images = get_image_files(directory_name)
+    random_image = random.choice(images)
+    path = f"{directory_name}/{random_image}"
+    return path
+
+
+def is_image(filename: str) -> bool:
+    valid = (".png", ".jpg", ".jpeg", ".gif")
+    return filename.endswith(valid)
+
+
+def upload_image(directory_name: str, image: fastapi.UploadFile):
+    if is_image(image.filename):
+        timestr = time.strftime("%Y%m%d-%H%M%S")
+        image_name = timestr + image.filename.replace(' ', '-')
+        with open(f"{directory_name}/{image_name}", "wb") as image_upload:
+            image_upload.write(image.file.read())
+        return f"{directory_name}/{image_name}"
+    return None
+
+
 @app.get("/")
 def root():
     return {"message": "The meme api"}
@@ -29,12 +58,13 @@ def root():
 
 @app.get("/wholesome-memes")
 def get_wholesomememes():
-    img_path = service.random_img("wholesomememes")
+    img_path = random_img("wholesomememes")
     return responses.FileResponse(img_path)
+
 
 @app.post("/post-wholesome-memes")
 def create_programmer(image: fastapi.UploadFile = fastapi.File(...)):
-    file_path = service.upload_image("programmerhumor", image)
+    file_path = upload_image("programmerhumor", image)
     if file_path is None:
         return fastapi.HTTPException(status_code=409)
     return responses.FileResponse(file_path)
@@ -42,13 +72,13 @@ def create_programmer(image: fastapi.UploadFile = fastapi.File(...)):
 
 @app.get("/programmerhumor")
 def get_wholesomememes():
-    img_path = service.random_img("programmerhumor")
+    img_path = random_img("programmerhumor")
     return responses.FileResponse(img_path)
 
 
 @app.post("/post-programmer-memes")
 def create_programmer(image: fastapi.UploadFile = fastapi.File(...)):
-    file_path = service.upload_image("programmerhumor", image)
+    file_path = upload_image("programmerhumor", image)
     if file_path is None:
         return fastapi.HTTPException(status_code=409)
     return responses.FileResponse(file_path)
