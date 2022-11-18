@@ -45,9 +45,9 @@ def upload_image(directory_name: str, image: fastapi.UploadFile):
     if is_image(image.filename):
         timestr = time.strftime("%Y%m%d-%H%M%S")
         image_name = timestr + image.filename.replace(' ', '-')
-        with open(f"{directory_name}/{image_name}", "wb") as image_upload:
+        with open(f"/code/app/{directory_name}/{image_name}", "wb") as image_upload:
             image_upload.write(image.file.read())
-        return f"{directory_name}/{image_name}"
+        return f"/code/app/{directory_name}/{image_name}"
     return None
 
 
