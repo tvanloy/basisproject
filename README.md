@@ -12,3 +12,8 @@ OpenAPI docs:
 ![image](https://user-images.githubusercontent.com/91123059/202874841-94720d39-129c-479b-8d0d-82e4c22751be.png)
 ![image](https://user-images.githubusercontent.com/91123059/202874848-4684f18b-63bf-4078-bd33-2049eaef6ff8.png)
 ![image](https://user-images.githubusercontent.com/91123059/202874864-bc11c466-8c42-41b6-989a-f80770c40e37.png)
+
+LINKS:
+hosted API: https://api-service-tvanloy.cloud.okteto.net/docs
+frontend repo: https://github.com/tvanloy/tvanloy.github.io
+hosted frontend:  https://tvanloy.github.io/index.html
