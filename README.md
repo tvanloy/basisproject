@@ -5,6 +5,13 @@ het is ook mogelijk om zelf fotos te uploaden deze worden dan opnieuw geformat (
 Als deze in de juiste map geplaats zijn kunnen ze ook voorkomen bij de GET. 
 Voor stijgeving van de frontend heb ik gebprobeerd deze vrij lelijk te maken als een "meme" omdat het natuurlijk een meme API is vandaar ook de comic sans.
 
+LINKS:
+hosted API: https://api-service-tvanloy.cloud.okteto.net/docs
+
+frontend repo: https://github.com/tvanloy/tvanloy.github.io
+
+hosted frontend:  https://tvanloy.github.io/index.html
+
 Postman werkte niet.
 
 OpenAPI docs:
@@ -13,7 +20,4 @@ OpenAPI docs:
 ![image](https://user-images.githubusercontent.com/91123059/202874848-4684f18b-63bf-4078-bd33-2049eaef6ff8.png)
 ![image](https://user-images.githubusercontent.com/91123059/202874864-bc11c466-8c42-41b6-989a-f80770c40e37.png)
 
-LINKS:
-hosted API: https://api-service-tvanloy.cloud.okteto.net/docs
-frontend repo: https://github.com/tvanloy/tvanloy.github.io
-hosted frontend:  https://tvanloy.github.io/index.html
+
